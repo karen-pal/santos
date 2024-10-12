@@ -7,7 +7,6 @@ from datetime import datetime
 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')  # Para Linux/Unix
 # locale.setlocale(locale.LC_TIME, 'es_ES')  # Para Windows
 
-# Lista de datos: (plain_text, cipher_text)
 data = [
     ("11 de marzo", "Federación-Gloria-Argentina"),
     ("14 de marzo", "Federación-sistema-de América"),
@@ -49,7 +48,7 @@ data = [
 # Crear DataFrame a partir de los datos
 df = pd.DataFrame(data, columns=["plain_text", "cipher_text"])
 
-# Convertir las fechas al formato datetime (asumiendo que el año es 2024)
+# Convertir las fechas al formato datetime (asumiendo que el año es 1833)
 df["date"] = pd.to_datetime(df["plain_text"], format="%d de %B", errors='coerce').map(lambda x: x.replace(year=1833))
 
 # Ordenar el DataFrame por la fecha
